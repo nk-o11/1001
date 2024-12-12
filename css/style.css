@@ -1,0 +1,429 @@
+@charset "UTF-8";
+
+/* 全体共通 */
+* {box-sizing: border-box;}
+/* https://developer.mozilla.org/ja/docs/Web/CSS/box-sizing */
+
+body {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium","游ゴシック", "Yu Gothic", sans-serif;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+.ym {
+  font-family: "Agu Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "MORF" 0;
+}
+
+/* スマホファスト用 */
+/* Navbar & Navmenu color */
+:root {
+  --background-navbar: rgb(0,0,0);
+}
+
+.header {
+  background: var(--background-navbar);
+  width: 100%;
+  height: 163px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* Nav items */
+.menu {
+  list-style: none;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0;
+  margin-top: 163px;
+  padding: 0 0 10px 0;
+  z-index: 9999;
+  clear: both;
+  background: var(--background-navbar);
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  transform: scale(1, 0);
+  transform-origin: top;
+  text-align: center;
+}
+
+/* Hamburger menu button */
+.menu-btn:checked ~ .menu {
+  transform: scale(1, 1);
+  transform-origin: top;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+/* Hamburger menbu text */
+.menu a {
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 90px;
+  text-transform: capitalize;
+  color: #ddd;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.nav-img{
+  width: 250px;
+}
+
+.menu li {
+  border-top: 5px solid rgb(75, 75, 75);
+  padding: 15px 0;
+  margin: 0 54px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.menu-btn:checked ~ .menu a,
+.menu-btn:checked ~ .menu li {
+  opacity: 1;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  padding: 80px 90px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.navicon {
+  background: #ddd;
+  display: block;
+  height: 10px;
+  width: 80px;
+  position: relative;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+.navicon:before,
+.navicon:after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: #ddd;
+  transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+
+.navicon:before {
+  top: 30px;
+}
+
+.navicon:after {
+  bottom: 30px;
+}
+
+/* Hamburger Menu Animation Start */
+.menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+
+.menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before {
+  top: 0;
+}
+.menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  bottom: 0;
+}
+
+.menu-btn:checked ~ .menu-icon .navicon {
+  background: rgba(0, 0, 0, 0);
+  transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+}
+/* Hamburger Menu Animation End */
+
+/* Navbar Container */
+.navtext-container {
+  width: 100%;
+  position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-img{
+  width: 250px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.index-article{
+  width: 100%;
+  padding-top: 163px;
+  padding-bottom: 50px;
+  background-color: rgb(218, 8, 8);
+}
+
+.index-wapp{
+  width: 880px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.iphone-yoko{
+  width: 10%;
+  height: 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -999;
+}
+
+.iphone-yoko h1{
+  font-size: 0;
+  color: rgb(218, 8, 8);
+}
+
+.index-box{
+  width: 400px;
+  background-color: #ffce00;
+  margin: 20px 20px;
+}
+
+.index-img{
+  width: 350px;
+  margin: 25px;
+}
+
+.article-top{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.article-top h1{
+  font-size: 80px;
+  color: #ffce00;
+  margin: 0;
+}
+
+.blue-box{
+  width: 650px;
+  height: 500px;
+  background-color: rgb(15, 70, 252);
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.yellow-box{
+  width: 630px;
+  height: 480px;
+  background-color: #ffce00;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
+/* カード本体 */
+.card {
+  width: 600px; /* 任意の横幅を指定 */
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+/* 擬似要素とpadding-topでカードの高さを指定 */
+.card::before {
+  content: "";
+  display: block;
+  padding-top: 142.5%;
+}
+
+/* カード内の画像 */
+.card img {
+  width: 100%;
+}
+
+/* カード裏面・表面の共通スタイル */
+.card .back,
+.card .front {
+  transition: all 0.6s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+/* カード表面のスタイル */
+.card .front {
+  transform: rotateY(-180deg);
+}
+
+/* ホバー時のカード裏面 */
+.card:hover .back {
+  transform: rotateY(180deg);
+}
+
+/* ホバー時のカード表面 */
+.card:hover .front {
+  transform: rotateY(0);
+}
+
+.article-box{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.cake{
+  width: 100%;
+}
+
+/* カード本体 */
+.card-h {
+  width: 400px; /* 任意の横幅を指定 */
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+/* 擬似要素とpadding-topでカードの高さを指定 */
+.card-h::before {
+  content: "";
+  display: block;
+  padding-top: 142.5%;
+}
+
+/* カード内の画像 */
+.card-h img {
+  width: 100%;
+}
+
+/* カード裏面・表面の共通スタイル */
+.card-h .back,
+.card-h .front {
+  transition: all 0.6s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+/* カード表面のスタイル */
+.card-h .front {
+  transform: rotateY(-180deg);
+}
+
+/* ホバー時のカード裏面 */
+.card-h:hover .back {
+  transform: rotateY(180deg);
+}
+
+/* ホバー時のカード表面 */
+.card-h:hover .front {
+  transform: rotateY(0);
+}
+
+.blue-box-h{
+  width: 450px;
+  height: 766px;
+  background-color: rgb(15, 70, 252);
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.yellow-box-h{
+  width: 430px;
+  height: 740px;
+  background-color: #ffce00;
+  margin: 0 auto;
+  padding-top: 15px;
+}
+
+.youtube-box{
+  width: 800px;
+  margin: 0 auto;
+  display: flex;
+  padding: 5px 50px 50px 50px;
+}
+
+.A-img{
+  width: 100px;
+  margin: 100px 20px;
+}
+
+.B-img{
+  width: 120px;
+  margin: 116px 10px;
+}
+
+.none-box{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.none-box h1{
+  font-size: 16px;
+  color: #ffce00;
+}
+
+@media screen and (orientation: landscape) { /* 横向きの場合のスタイル */ 
+  .index-wapp{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -999;
+  }
+
+  .iphone-yoko{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 163px;
+    left: 0;
+    z-index: 999;
+    text-align: center;
+    background-color: rgb(218, 8, 8);
+  }
+
+  .iphone-yoko h1 a{
+    font-size: 40px;
+    color: #ffce00;
+    text-decoration: none;
+  }
+
+  .yoko-img{
+    width: auto;
+    height: 350px;
+    margin: auto;
+  }
+}
+
+/* 小型PC用 */
+@media screen and (max-width:1279px){ 
+  
+}
+
+/* 大型PC用 */
+@media screen and (min-width:1280px) {
+  
+}
